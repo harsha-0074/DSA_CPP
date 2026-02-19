@@ -159,6 +159,6 @@ int main(){
 
     // cout<< count(root);
 
-    cout<< sumBT(root);
+    // cout<< sumBT(root);
     return 0;
 }
