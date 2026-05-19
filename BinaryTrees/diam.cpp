@@ -56,6 +56,7 @@ int diam(Node* root){
     int leftht = diam(root->left);
     int rightht = diam(root->right);
     int ans = max(currDiam,max(leftht,rightht));
+    return ans;
 }
 
 //diam 2
