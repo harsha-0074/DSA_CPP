@@ -71,6 +71,32 @@ public:
         }
 
     }
+
+    bool cycleHelper(int src,int parent, vector<bool> &vis){
+        vis[src] = true;
+
+        list<int> neighbors = l[src];
+
+        for(int v : neighbors){
+            if(!vis[v]){
+                if(cycleHelper(v,src,vis)){
+                    return true;
+                }
+
+                else{
+                    if(v != parent){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    bool undirCycleDete(){
+        vector<bool> vis(V, false);
+        return cycleHelper(0,-1,vis);
+    }
 };
 
 int main(){
@@ -84,7 +110,9 @@ int main(){
 
     vector<bool> vis(5, false);
 
-    graph.dfs(0, vis);
+    //graph.dfs(0, vis);
+    
+    cout<<graph.undirCycleDete()<< endl;
     return 0;
 
 }
